@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-<img src="logo.jpeg" alt="logo" />
+<img src="logo.png" alt="logo" />
 
 export function Loading() {
   return (
@@ -11,7 +11,7 @@ export function Loading() {
         className="text-center"
       >
         <motion.img
-          src="logo.jpeg"
+          src="logo.png"
           alt="The Willow Village"
           className="w-32 h-32 mx-auto mb-6"
           animate={{ 
