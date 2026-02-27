@@ -104,13 +104,13 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="The Willow Village" className="h-12 sm:h-16 w-auto" />
-            <div className="block">
-              <div className="font-bold text-[#6B7A3A] text-lg">The Willow Village</div>
-              <div className="text-sm text-[#A67C52] italic">Shaping Independent Thinkers</div>
-            </div>
-          </Link>
+          <Link to="/" className="flex items-center gap-2">
+  <img src="/logo.png" alt="The Willow Village" className="h-10 sm:h-16 w-auto" />
+  <div className="block">
+    <div className="font-bold text-[#6B7A3A] text-sm sm:text-lg">The Willow Village</div>
+    <div className="text-xs sm:text-sm text-[#A67C52] italic">Shaping Independent Thinkers</div>
+  </div>
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-0.5" ref={dropdownRef}>
