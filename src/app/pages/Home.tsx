@@ -10,6 +10,34 @@ const heroImages = [
   "https://images.unsplash.com/photo-1544776193-352d25ca82cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVzY2hvb2wlMjBraWRzJTIwc3R1ZHlpbmd8ZW58MXx8fHwxNzcxNjc0Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
   "https://images.unsplash.com/photo-1586512803683-bdc3f85b15a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb250ZXNzb3JpJTIwbWF0ZXJpYWxzJTIwZWR1Y2F0aW9ufGVufDF8fHx8MTc3MTY3NDI5OXww&ixlib=rb-4.1.0&q=80&w=1080",
 ];
+// Add these to your image array or a new one
+const drawerImages = [
+  '/public/neuro-physio.jpg',
+  '/public/exciting-news.jpg',
+  '/public/inclusive-school.jpg',
+  '/public/autism-invitation.jpg',
+  '/public/world-autism-day.jpg'
+];
+const drawerSettings = {
+  dots: false,
+  infinite: true,
+  speed: 2000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  pauseOnHover: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: { slidesToShow: 2 }
+    },
+    {
+      breakpoint: 640,
+      settings: { slidesToShow: 1, centerMode: true, centerPadding: '30px' }
+    }
+  ]
+};
 
 const features = [
   {
@@ -177,6 +205,36 @@ export function Home() {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>  
+
+
+{/* Auto-Sliding Announcement Drawer */}
+<section className="py-12 bg-[#fdfdf7] border-y border-[#e8e8d5]">
+  <div className="container mx-auto px-4">
+    <div className="mb-8 flex items-center justify-between">
+      <h3 className="text-2xl font-bold text-[#6b7c3f]">Latest Announcements</h3>
+      <div className="h-1 flex-grow mx-4 bg-[#6b7c3f]/10 rounded-full" />
+    </div>
+
+    <div className="announcement-drawer">
+      <Slider {...drawerSettings}>
+        {drawerImages.map((src, index) => (
+          <div key={index} className="px-3">
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 transition-shadow hover:shadow-xl"
+            >
+              <img 
+                src={src} 
+                alt={`School Update ${index + 1}`} 
+                className="w-full h-auto object-contain aspect-[3/4]"
+              />
+            </motion.div>
+          </div>
+        ))}
+      </Slider>
     </div>
   </div>
 </section>
