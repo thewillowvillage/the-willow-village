@@ -12,11 +12,11 @@ const heroImages = [
 ];
 // Add these to your image array or a new one
 const drawerImages = [
-  '/public/neuro-physio.jpg',
-  '/public/exciting-news.jpg',
-  '/public/inclusive-school.jpg',
-  '/public/autism-invitation.jpg',
-  '/public/world-autism-day.jpg'
+  '/neuro-physio.jpg',
+  '/exciting-news.jpg',
+  '/inclusive-school.jpg',
+  '/autism-invitation.jpg',
+  '/world-autism-day.jpg'
 ];
 const drawerSettings = {
   dots: false,
