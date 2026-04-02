@@ -229,6 +229,8 @@ export function Home() {
               <img 
                 src={src} 
                 alt={`School Update ${index + 1}`} 
+                loading="lazy" /* <--- ADD THIS LINE */
+              decoding="async" /* <--- ADD THIS LINE */
                 className="w-full h-auto object-contain aspect-[3/4]"
               />
             </motion.div>
