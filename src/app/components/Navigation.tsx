@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router";
-import { Menu, X, ChevronDown, Facebook, Instagram } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navConfig = [
@@ -37,24 +37,33 @@ const navConfig = [
   { path: "/contact", label: "Contact" },
 ];
 
-// Reusable Social Links Component with your actual links
+// Reliable Social Links Component
 const SocialLinks = ({ className = "" }: { className?: string }) => (
   <div className={`flex items-center gap-3 ${className}`}>
+    {/* Facebook Official Blue */}
     <a 
       href="https://www.facebook.com/share/1B7ytF6Z5u/?mibextid=wwXIfr" 
       target="_blank" 
       rel="noreferrer" 
-      className="text-[#6B7A3A] hover:text-[#A67C52] transition-colors"
+      className="transition-transform active:scale-90"
     >
-      <Facebook className="w-5 h-5" />
+      <svg className="w-6 h-6 lg:w-5 lg:h-5" viewBox="0 0 24 24" fill="#1877F2">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
     </a>
+
+    {/* Instagram - Using a different method (SVG with solid fill or hardcoded color) to ensure mobile visibility */}
     <a 
       href="https://www.instagram.com/thewillowvillage" 
       target="_blank" 
       rel="noreferrer" 
-      className="text-[#6B7A3A] hover:text-[#A67C52] transition-colors"
+      className="transition-transform active:scale-90 flex items-center justify-center"
     >
-      <Instagram className="w-5 h-5" />
+      <div className="w-6 h-6 lg:w-5 lg:h-5 rounded-[6px] flex items-center justify-center bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]">
+        <svg viewBox="0 0 24 24" className="w-[70%] h-[70%] text-white fill-current">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </div>
     </a>
   </div>
 );
@@ -68,7 +77,11 @@ function DropdownMenu({ items }: { items: { path: string; label: string }[] }) {
       className="absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50"
     >
       {items.map((item) => (
-        <Link key={item.path} to={item.path} className="block px-4 py-2 text-[13px] text-gray-700 hover:bg-[#E8DCC4] hover:text-[#6B7A3A] transition-colors">
+        <Link 
+          key={item.path} 
+          to={item.path} 
+          className="block px-4 py-2 text-[13px] text-gray-700 hover:bg-[#E8DCC4] hover:text-[#6B7A3A] transition-colors"
+        >
           {item.label}
         </Link>
       ))}
@@ -105,23 +118,21 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo Section - Increased size on Mobile (sm:text-lg) */}
-          <Link to="/" className="flex items-center gap-2 mr-6 sm:mr-10 transition-transform active:scale-95">
-            <img src="/logo.png" alt="The Willow Village" className="h-11 sm:h-12 w-auto" />
+          <Link to="/" className="flex items-center gap-2 mr-4 sm:mr-10 transition-transform active:scale-95">
+            <img src="/logo.png" alt="The Willow Village" className="h-10 sm:h-12 w-auto" />
             <div className="flex flex-col">
-              <span className="font-bold text-[#6B7A3A] text-base sm:text-lg leading-tight">
+              <span className="font-bold text-[#6B7A3A] text-sm sm:text-lg leading-tight">
                 The Willow Village
               </span>
-              <span className="text-[10px] sm:text-[11px] text-[#A67C52] italic leading-tight">
+              <span className="text-[9px] sm:text-[11px] text-[#A67C52] italic leading-tight">
                 Shaping Independent Thinkers
               </span>
             </div>
           </Link>
 
-          {/* Right Section: Navigation & Socials */}
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             
-            {/* Desktop Navigation - Small text (13px) and wide gaps (gap-5) */}
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-5" ref={dropdownRef}>
               {navConfig.map((item) => (
                 <div key={item.label} className="relative">
@@ -156,13 +167,12 @@ export function Navigation() {
               </div>
             </div>
 
-            {/* Mobile Socials */}
-            <SocialLinks className="lg:hidden scale-90" />
+            {/* Mobile Socials - Fixed for visibility */}
+            <SocialLinks className="lg:hidden" />
 
-            {/* Mobile Menu Toggle */}
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="lg:hidden p-2 text-gray-700"
+              className="lg:hidden p-2 text-gray-700 focus:outline-none"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -177,7 +187,7 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }} 
             animate={{ opacity: 1, height: "auto" }} 
             exit={{ opacity: 0, height: 0 }} 
-            className="lg:hidden bg-white border-t mt-2 px-6 py-6 shadow-inner"
+            className="lg:hidden bg-white border-t mt-2 px-6 py-6 shadow-xl overflow-y-auto max-h-[80vh]"
           >
             {navConfig.map((item) => (
               <div key={item.label} className="mb-3">
@@ -185,20 +195,20 @@ export function Navigation() {
                   <>
                     <button 
                       onClick={() => setOpenMobileDropdown(openMobileDropdown === item.label ? null : item.label)}
-                      className="w-full flex justify-between items-center text-gray-700 font-semibold"
+                      className="w-full flex justify-between items-center text-gray-700 font-semibold py-2"
                     >
                       {item.label} <ChevronDown className={`w-4 h-4 transition-transform ${openMobileDropdown === item.label ? 'rotate-180' : ''}`} />
                     </button>
                     {openMobileDropdown === item.label && (
-                      <div className="mt-2 pl-4 border-l-2 border-[#E8DCC4] space-y-2">
+                      <div className="mt-1 pl-4 border-l-2 border-[#E8DCC4] space-y-1">
                         {item.dropdown.map(sub => (
-                          <Link key={sub.path} to={sub.path} className="block py-1 text-sm text-gray-600 active:text-[#6B7A3A]">{sub.label}</Link>
+                          <Link key={sub.path} to={sub.path} className="block py-2 text-sm text-gray-600 active:text-[#6B7A3A]">{sub.label}</Link>
                         ))}
                       </div>
                     )}
                   </>
                 ) : (
-                  <Link to={item.path!} className="block text-gray-700 font-semibold">{item.label}</Link>
+                  <Link to={item.path!} className="block text-gray-700 font-semibold py-2">{item.label}</Link>
                 )}
               </div>
             ))}
