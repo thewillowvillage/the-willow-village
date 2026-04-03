@@ -20,29 +20,27 @@ const drawerImages = [
 ];
 
 const drawerSettings = {
-  dots: true, // Enabled dots for better mobile navigation
+  dots: true,
   infinite: true,
-  speed: 1000,
+  speed: 800, // Faster transition speed
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 2500, // Slides automatically every 2.5 seconds
   pauseOnHover: true,
   responsive: [
     {
       breakpoint: 1024,
       settings: { 
-        slidesToShow: 2,
-        dots: true 
+        slidesToShow: 2 
       }
     },
     {
       breakpoint: 640,
       settings: { 
-        slidesToShow: 1, // Single slide on mobile for readability
-        centerMode: true, 
-        centerPadding: '20px', // Shows a hint of next slide
-        dots: true 
+        slidesToShow: 1, // Fixes the "three tiny squashed images" issue
+        centerMode: false, // Turned off to prevent cropping
+        arrows: false 
       }
     }
   ]
@@ -116,7 +114,7 @@ export function Home() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8 }}
               className="max-w-3xl"
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
@@ -125,16 +123,11 @@ export function Home() {
               <p className="text-2xl md:text-3xl text-[#F4E5C7] mb-4 font-medium italic">
                 Shaping Independent Thinkers
               </p>
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Montessori + Therapy Session
-                <br />
-                <span className="text-[#E8DCC4]">Where Learning Meets Individual Care</span>
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/admissions" className="bg-[#7A9B3A] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6B7A3A] transition-all shadow-lg transform hover:scale-105">
+              <div className="flex flex-wrap gap-4 mt-8">
+                <Link to="/admissions" className="bg-[#7A9B3A] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6B7A3A] transition-all">
                   Apply Now
                 </Link>
-                <Link to="/contact" className="bg-white text-[#7A9B3A] px-8 py-4 rounded-full font-semibold hover:bg-[#E8DCC4] transition-all shadow-lg transform hover:scale-105">
+                <Link to="/contact" className="bg-white text-[#7A9B3A] px-8 py-4 rounded-full font-semibold transition-all">
                   Book Assessment
                 </Link>
               </div>
@@ -142,8 +135,7 @@ export function Home() {
           </div>
         </div>
       </section>
-
-      {/* CEO Message Section */}
+{/* CEO Message Section */}
       <section style={{padding: '60px 20px', background: '#F9F5EE'}}>
         <div style={{maxWidth: '900px', margin: '0 auto'}}>
           <p style={{textAlign: 'center', color: '#6B7A3A', fontWeight: 'bold', fontSize: '14px', marginBottom: '8px'}}>A Message from Our Founder</p>
@@ -170,8 +162,7 @@ export function Home() {
           </div>
         </div>
       </section>
-
-      {/* FIXED: Announcement Drawer Slider */}
+      {/* Announcement Slider Section */}
       <section className="py-12 bg-[#fdfdf7] border-y border-[#e8e8d5]">
         <div className="container mx-auto px-4">
           <div className="mb-8 flex items-center justify-between">
@@ -182,20 +173,15 @@ export function Home() {
           <div className="announcement-drawer">
             <Slider {...drawerSettings}>
               {drawerImages.map((src, index) => (
-                <div key={index} className="px-2"> {/* Reduced horizontal padding for mobile width */}
-                  <motion.div 
-                    whileHover={{ y: -5 }}
-                    className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100"
-                  >
+                <div key={index} className="px-2">
+                  <div className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 flex items-center justify-center">
                     <img 
                       src={src} 
                       alt={`Announcement ${index + 1}`} 
-                      loading="lazy" 
-                      decoding="async"
-                      /* Increased height and used object-cover for better visibility */
-                      className="w-full h-[450px] md:h-[550px] object-cover" 
+                      className="w-full h-auto max-h-[500px] md:max-h-[600px] object-contain" 
+                      loading="lazy"
                     />
-                  </motion.div>
+                  </div>
                 </div>
               ))}
             </Slider>
@@ -203,7 +189,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Why Choose Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#6B7A3A] mb-12">
@@ -211,18 +197,13 @@ export function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 20 }}
-                className="bg-white p-6 rounded-2xl shadow-lg border border-[#E8DCC4]"
-              >
+              <div key={index} className="bg-white p-6 rounded-2xl shadow-lg border border-[#E8DCC4]">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: `${feature.color}20` }}>
                   <feature.icon className="w-8 h-8" style={{ color: feature.color }} />
                 </div>
                 <h3 className="text-xl font-bold text-[#6B7A3A] mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
