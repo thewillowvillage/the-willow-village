@@ -51,3 +51,18 @@ html {
   color: #6b7c3f;
   font-size: 24px;
 }
+/* Ensure post text is never smaller than 16px on mobile for readability */
+@media (max-width: 768px) {
+  .post-content p, 
+  .slider-caption p {
+    font-size: 1.05rem !important; /* Approximately 17px */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .post-content h2,
+  .slider-caption h2 {
+    font-size: 1.5rem !important; /* Larger headlines */
+    margin-bottom: 0.75rem;
+  }
+}
