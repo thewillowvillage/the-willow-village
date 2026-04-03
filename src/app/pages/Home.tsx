@@ -21,11 +21,11 @@ const drawerImages = [
 const drawerSettings = {
   dots: false,
   infinite: true,
-  speed: 800, // Speed of the sliding animation (lower is faster)
+  speed: 600, // Faster slide animation
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 2000, // Time between slides (2 seconds)
+  autoplaySpeed: 2000, // Faster auto-slide
   pauseOnHover: true,
   responsive: [
     {
@@ -37,10 +37,10 @@ const drawerSettings = {
     {
       breakpoint: 640,
       settings: { 
-        slidesToShow: 1, // Shows exactly one post
-        centerMode: false, // Set to false so only one full image is visible
-        autoplaySpeed: 1500, // Even faster auto-slide specifically for mobile
-        speed: 600 // Faster transition for mobile
+        slidesToShow: 1, // Strictly one slide
+        slidesToScroll: 1,
+        centerMode: false, // Disabling this prevents the "squashed" look
+        arrows: false
       }
     }
   ]
@@ -233,12 +233,12 @@ export function Home() {
               className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 transition-shadow hover:shadow-xl"
             >
               <img 
-                src={src} 
-                alt={`School Update ${index + 1}`} 
-                loading="lazy" /* <--- ADD THIS LINE */
-              decoding="async" /* <--- ADD THIS LINE */
-                className="w-full h-auto object-contain aspect-[3/4]"
-              />
+  src={src} 
+  alt={`School Update ${index + 1}`} 
+  loading="lazy"
+  decoding="async"
+  className="w-full h-auto object-contain" // Removed aspect ratio to let image dictate height
+/>
             </motion.div>
           </div>
         ))}
