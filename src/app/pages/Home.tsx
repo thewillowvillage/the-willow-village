@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { Heart, Users, Award, Sparkles, BookOpen, Brain } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { WorkshopPopup } from "./../components/WorkshopPopup";
 const heroImages = [
   "https://images.unsplash.com/photo-1763310225537-f7161d5c93e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb250ZXNzb3JpJTIwY2hpbGRyZW4lMjBsZWFybmluZyUyMGNsYXNzcm9vbXxlbnwxfHx8fDE3NzE2NzI2MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
   "https://images.unsplash.com/photo-1544776193-352d25ca82cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVzY2hvb2wlMjBraWRzJTIwc3R1ZHlpbmd8ZW58MXx8fHwxNzcxNjc0Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -90,8 +90,9 @@ export function Home() {
     fade: true,
     pauseOnHover: false,
   };
-
   return (
+    <div className="pt-16">
+      <WorkshopPopup />
     <div className="pt-16">
       {/* Hero Section with Slider */}
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
@@ -432,6 +433,7 @@ export function Home() {
           </motion.div>
         </div>
       </section>
+    </div>
     </div>
   );
 }
