@@ -174,7 +174,7 @@ export function Gallery() {
             >
               <div className="relative h-72 w-full overflow-hidden rounded-2xl group mb-6">
                 <img 
-                  src="https://images.unsplash.com/photo-1763310225537-f7161d5c93e9?q=80&w=1080" 
+                  src="banner1.jpeg" 
                   alt="The Willow Village School" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -198,7 +198,7 @@ export function Gallery() {
             >
               <div className="relative h-72 w-full overflow-hidden rounded-2xl group mb-6">
                 <img 
-                  src="https://images.unsplash.com/photo-1597075958693-75173d1c837f?q=80&w=1080" 
+                  src="im15.jpeg" 
                   alt="Therapy Programs" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />

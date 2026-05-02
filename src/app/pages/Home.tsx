@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import { Heart, Users, Award, Sparkles, BookOpen, Brain, HandHeart, School, Ribbon, GraduationCap, BriefcaseBusiness, BadgeCheck } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { WorkshopPopup } from "./../components/WorkshopPopup";
 const heroImages = [
   "banner1.jpeg",
   "banner2.jpeg",
@@ -167,7 +166,6 @@ export function Home() {
   };
   return (
     <div className="pt-16">
-      <WorkshopPopup />
     <div className="pt-4">
       {/* Hero Section with Slider */}
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
