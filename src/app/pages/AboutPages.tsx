@@ -1,3 +1,5 @@
+import { BadgeCheck, CalendarHeart, HandHeart, Images, Megaphone, Users } from "lucide-react";
+
 export function OurStory() {
   return (
     <div className="pt-24 min-h-screen bg-[#F9F5EE]">
@@ -126,6 +128,183 @@ export function OurMission() {
         <div className="bg-[#7A9B3A] rounded-2xl p-8 text-white">
           <h2 className="text-2xl font-bold mb-4">Our Approach</h2>
           <p className="text-white/90 leading-relaxed">We combine the proven Montessori philosophy with modern therapeutic practices to create a truly holistic learning experience. Every child who walks through our doors receives an individualized plan, a caring team, and a community that roots for their success — every single day.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function CommunityService() {
+  const autismPamphlets = [
+    "/community-service/autismworkshop1.jpeg",
+    "/community-service/autismworkshop2.jpeg",
+    "/community-service/autismworkshop3.jpeg",
+    "/community-service/autismworkshop4.jpeg",
+    "/community-service/autismworkshop5.jpeg",
+    "/community-service/autismworkshop6.jpeg",
+
+  ];
+
+  const autismWorkshopPhotos = [
+    "/community-service/aaaa.jpeg",
+    "/community-service/aacc.jpeg",
+    "/community-service/aadd.jpeg",
+    "/community-service/aaee.jpeg",
+    "/community-service/abab.jpeg"
+  ];
+
+  const workshops = [
+    "Parent guidance workshops on supporting children at home",
+    "Free awareness camps for early support and intervention",
+    "Family empowerment sessions with practical daily routines",
+    "Community conversations around inclusion and acceptance"
+  ];
+
+  const impact = [
+    "Free learning opportunities for parents and caregivers",
+    "Guidance for families who need direction but may not know where to begin",
+    "A respectful space to ask questions about development, behavior, and learning",
+    "Support that connects school, home, and community"
+  ];
+
+  return (
+    <div className="pt-24 min-h-screen bg-[#F9F5EE]">
+      <div className="bg-[#7A9B3A] text-white py-16 px-4 text-center">
+        <HandHeart className="w-14 h-14 mx-auto mb-4" />
+        <h1 className="text-4xl sm:text-5xl font-bold mb-3">Community Service</h1>
+        <p className="text-white/90 text-lg max-w-3xl mx-auto">
+          Together We Care is our community service program for parents, caregivers, and families who want to support and empower their children.
+        </p>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-14 space-y-10">
+        <div className="bg-white rounded-2xl p-8 shadow-md border border-[#E8DCC4]">
+          <p className="uppercase tracking-[0.18em] text-sm text-[#A67C52] font-bold mb-3">Together We Care</p>
+          <h2 className="text-3xl font-bold text-[#6B7A3A] mb-4">Free Workshops and Parent Camps</h2>
+          <p className="text-gray-700 leading-relaxed text-lg">
+            The Willow Village conducts free workshops and camps for parents to guide them on how to understand, support, and empower their children. These sessions are designed to be practical, warm, and easy to apply at home.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white rounded-2xl p-8 shadow-md border border-[#E8DCC4]">
+            <div className="w-12 h-12 bg-[#7A9B3A]/15 rounded-full flex items-center justify-center mb-5">
+              <CalendarHeart className="w-7 h-7 text-[#7A9B3A]" />
+            </div>
+            <h2 className="text-2xl font-bold text-[#6B7A3A] mb-5">Workshops Conducted at The Willow Village</h2>
+            <ul className="space-y-4">
+              {workshops.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-gray-700">
+                  <BadgeCheck className="w-5 h-5 text-[#7A9B3A] mt-1 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 shadow-md border border-[#E8DCC4]">
+            <div className="w-12 h-12 bg-[#A67C52]/15 rounded-full flex items-center justify-center mb-5">
+              <Users className="w-7 h-7 text-[#A67C52]" />
+            </div>
+            <h2 className="text-2xl font-bold text-[#6B7A3A] mb-5">Our Community Impact</h2>
+            <ul className="space-y-4">
+              {impact.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-gray-700">
+                  <BadgeCheck className="w-5 h-5 text-[#A67C52] mt-1 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <section className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-[#E8DCC4]">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-8">
+            <div>
+              <div className="w-12 h-12 bg-[#7A9B3A]/15 rounded-full flex items-center justify-center mb-5">
+                <Megaphone className="w-7 h-7 text-[#7A9B3A]" />
+              </div>
+              <p className="uppercase tracking-[0.18em] text-sm text-[#A67C52] font-bold mb-3">Conducted Workshop</p>
+              <h2 className="text-3xl font-bold text-[#6B7A3A] mb-3">Autism Awareness and Inclusive Workshop</h2>
+              <p className="text-gray-700 leading-relaxed max-w-3xl">
+                The Willow Village conducted an autism awareness and inclusive workshop to guide families, educators, and community members with expert voices, practical understanding, and compassionate support.
+              </p>
+            </div>
+            <div className="bg-[#F9F5EE] border border-[#E8DCC4] rounded-2xl px-5 py-4 text-[#6B7A3A] font-bold">
+              21 April, 2026
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "Expert speaker sessions",
+              "Inclusive education guidance",
+              "Parent and teacher awareness",
+              "Neurodiversity acceptance",
+              "Community learning and support",
+              "Practical strategies for daily care"
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-[#F9F5EE] rounded-xl p-4">
+                <BadgeCheck className="w-5 h-5 text-[#7A9B3A] mt-1 flex-shrink-0" />
+                <span className="text-gray-700">{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-[#E8DCC4]">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 bg-[#A67C52]/15 rounded-full flex items-center justify-center">
+              <Images className="w-7 h-7 text-[#A67C52]" />
+            </div>
+            <div>
+              <p className="uppercase tracking-[0.18em] text-sm text-[#A67C52] font-bold mb-1">Workshop Pamphlets</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#6B7A3A]">Speakers and Awareness Posters</h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {autismPamphlets.map((src, index) => (
+              <div key={src} className="bg-[#F9F5EE] rounded-2xl overflow-hidden border border-[#E8DCC4] shadow-sm hover:shadow-lg transition-shadow">
+                <img
+                  src={src}
+                  alt={`Autism awareness workshop pamphlet ${index + 1}`}
+                  loading="lazy"
+                  className="w-full aspect-square object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-[#E8DCC4]">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 bg-[#7A9B3A]/15 rounded-full flex items-center justify-center">
+              <CalendarHeart className="w-7 h-7 text-[#7A9B3A]" />
+            </div>
+            <div>
+              <p className="uppercase tracking-[0.18em] text-sm text-[#A67C52] font-bold mb-1">Workshop Images</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#6B7A3A]">Moments from the Autism Workshop</h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            {autismWorkshopPhotos.map((src, index) => (
+              <div key={src} className="bg-[#F9F5EE] rounded-2xl overflow-hidden border border-[#E8DCC4] shadow-sm hover:shadow-lg transition-shadow">
+                <img
+                  src={src}
+                  alt={`Autism awareness workshop moment ${index + 1}`}
+                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className="bg-[#7A9B3A] rounded-2xl p-8 text-white text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Empowering Families Through Support and Guidance</h2>
+          <p className="text-white/90 max-w-3xl mx-auto">
+            This page can be used to showcase every workshop conducted by The Willow Village, including photos, dates, topics, and parent feedback.
+          </p>
         </div>
       </div>
     </div>

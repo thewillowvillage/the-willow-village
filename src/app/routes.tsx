@@ -9,7 +9,7 @@ import { Gallery } from "./pages/Gallery";
 import { Contact } from "./pages/Contact";
 import { FutureGoals } from "./pages/FutureGoals";
 import { NotFound } from "./pages/NotFound";
-import { OurStory, OurTeam, OurMission } from "./pages/AboutPages";
+import { OurStory, OurTeam, OurMission, CommunityService } from "./pages/AboutPages";
 import { ApplyNow, Requirements, FeesAndScholarships, ExpansionPlans, UpcomingPrograms } from "./pages/SubPages";
 import { OurPartners } from "./pages/OurPartners";
 
@@ -23,6 +23,7 @@ export const router = createBrowserRouter([
       { path: "about/our-story", element: <OurStory /> },
       { path: "about/our-team", element: <OurTeam /> },
       { path: "about/our-mission", element: <OurMission /> },
+      { path: "about/community-service", element: <CommunityService /> },
       { path: "programs", element: <Programs /> },
       { path: "therapy", element: <TherapySupport /> },
       { path: "admissions", element: <Admissions /> },

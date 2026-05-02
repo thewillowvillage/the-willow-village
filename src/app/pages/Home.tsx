@@ -1,14 +1,14 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import Slider from "react-slick";
-import { Heart, Users, Award, Sparkles, BookOpen, Brain } from "lucide-react";
+import { Heart, Users, Award, Sparkles, BookOpen, Brain, HandHeart, School, Ribbon, GraduationCap, BriefcaseBusiness, BadgeCheck } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { WorkshopPopup } from "./../components/WorkshopPopup";
 const heroImages = [
-  "https://images.unsplash.com/photo-1763310225537-f7161d5c93e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb250ZXNzb3JpJTIwY2hpbGRyZW4lMjBsZWFybmluZyUyMGNsYXNzcm9vbXxlbnwxfHx8fDE3NzE2NzI2MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1544776193-352d25ca82cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVzY2hvb2wlMjBraWRzJTIwc3R1ZHlpbmd8ZW58MXx8fHwxNzcxNjc0Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1586512803683-bdc3f85b15a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb250ZXNzb3JpJTIwbWF0ZXJpYWxzJTIwZWR1Y2F0aW9ufGVufDF8fHx8MTc3MTY3NDI5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+  "banner1.jpeg",
+  "banner2.jpeg",
+  "banner3.jpeg",
 ];
 // Add these to your image array or a new one
 const drawerImages = [
@@ -78,6 +78,81 @@ const features = [
   },
 ];
 
+const signaturePrograms = [
+  {
+    icon: School,
+    title: "Care Bridge Initiative",
+    description: "We collaborate with mainstream schools to make classrooms more inclusive for children with special needs.",
+    color: "#7A9B3A",
+    points: [
+      "Teacher guidance for inclusive classroom strategies",
+      "Parent meetings to build practical home-school support",
+      "Child observation, recommendations, and follow-up plans",
+      "Awareness sessions that encourage empathy and acceptance"
+    ],
+    link: "/programs#care-bridge"
+  },
+  {
+    icon: Ribbon,
+    title: "Aanchal Circle",
+    description: "Inspired by a mother's protective care, this circle gives mothers a safe space for emotional support and mental health.",
+    color: "#A67C52",
+    points: [
+      "Support circles for mothers and caregivers",
+      "Mental health guidance in a warm, private environment",
+      "Stress management, self-care, and confidence building",
+      "Professional listening support for families"
+    ],
+    link: "/programs#aanchal-circle"
+  },
+  {
+    icon: HandHeart,
+    title: "Together We Care",
+    description: "Our community service program provides free workshops and camps for parents who want to support and empower their children.",
+    color: "#8BB8E8",
+    points: [
+      "Free parent workshops and awareness camps",
+      "Guidance on child development and behavior support",
+      "Family empowerment through practical tools",
+      "Community outreach led by The Willow Village team"
+    ],
+    link: "/programs#together-we-care"
+  }
+];
+
+const internshipHighlights = [
+  "Paid 3-month internship program",
+  "Opportunities across education, therapy, administration, media, and community outreach",
+  "Hands-on experience with a leading inclusive school environment",
+  "Certificate provided after successful completion"
+];
+
+const whatsappInternshipLink =
+  "https://wa.me/923220277871?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20apply%20for%20the%203-month%20paid%20internship%20program%20at%20The%20Willow%20Village.";
+
+const afterSchoolTherapies = [
+  {
+    icon: Brain,
+    title: "Behavioral Therapy",
+    description: "Support for attention, emotional regulation, behavior routines, social skills, and confidence."
+  },
+  {
+    icon: BookOpen,
+    title: "Remedial Therapy",
+    description: "Academic support for reading, writing, concepts, learning gaps, and school readiness."
+  },
+  {
+    icon: Users,
+    title: "Physio Support",
+    description: "Movement-based support that helps children improve strength, posture, balance, and coordination."
+  },
+  {
+    icon: Heart,
+    title: "Speech Therapy",
+    description: "Language, communication, articulation, expression, and confidence-building support."
+  }
+];
+
 export function Home() {
   const sliderSettings = {
     dots: true,
@@ -93,7 +168,7 @@ export function Home() {
   return (
     <div className="pt-16">
       <WorkshopPopup />
-    <div className="pt-16">
+    <div className="pt-4">
       {/* Hero Section with Slider */}
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
         <Slider {...sliderSettings} className="h-full">
@@ -292,115 +367,157 @@ export function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-center text-[#6B7A3A] mb-12"
+            className="text-3xl md:text-4xl font-bold text-center text-[#6B7A3A] mb-4"
           >
             Our Programs
           </motion.h2>
+          <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+            Purpose-led programs for children, mothers, schools, and the wider community.
+          </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Montessori Program */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {signaturePrograms.map((program, index) => (
+              <motion.div
+                key={program.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.12 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-[#E8DCC4] hover:shadow-2xl transition-all"
+              >
+                <div className="p-6 text-white" style={{ backgroundColor: program.color }}>
+                  <program.icon className="w-10 h-10 mb-4" />
+                  <h3 className="text-2xl font-bold leading-tight">{program.title}</h3>
+                </div>
+                <div className="p-7">
+                  <p className="text-gray-700 leading-relaxed mb-5">{program.description}</p>
+                  <ul className="space-y-3 mb-6">
+                    {program.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-gray-700">
+                        <BookOpen className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: program.color }} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to={program.link}
+                    className="inline-block text-white px-6 py-3 rounded-full font-semibold transition-all hover:scale-105"
+                    style={{ backgroundColor: program.color }}
+                  >
+                    Learn More
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* After School Program */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto mb-12"
+          >
+            <p className="uppercase tracking-[0.2em] text-sm text-[#A67C52] font-bold mb-3">Ages 4 to 15 Years</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#6B7A3A] mb-4">After School Program</h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              A supportive after-school program for children who need extra therapeutic care, learning support, and confidence-building after regular school hours.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 items-stretch">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-[#E8DCC4] hover:shadow-2xl transition-all"
+              className="bg-gradient-to-br from-[#6B7A3A] to-[#A67C52] rounded-3xl p-8 md:p-10 text-white shadow-xl"
             >
-              <div className="bg-gradient-to-r from-[#7A9B3A] to-[#A67C52] p-6">
-                <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
-                  🌸 Montessori Program
-                </h3>
-              </div>
-              <div className="p-8">
-                <p className="text-gray-600 mb-4 font-semibold">Age group: 2.5 – 6 years</p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <BookOpen className="w-5 h-5 text-[#7A9B3A] mt-1 flex-shrink-0" />
-                    <span className="text-gray-700">Practical life activities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BookOpen className="w-5 h-5 text-[#7A9B3A] mt-1 flex-shrink-0" />
-                    <span className="text-gray-700">Sensory learning experiences</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BookOpen className="w-5 h-5 text-[#7A9B3A] mt-1 flex-shrink-0" />
-                    <span className="text-gray-700">Language & numeracy development</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BookOpen className="w-5 h-5 text-[#7A9B3A] mt-1 flex-shrink-0" />
-                    <span className="text-gray-700">Social skills building</span>
-                  </li>
-                </ul>
-                <Link
-                  to="/programs"
-                  className="mt-6 inline-block bg-[#7A9B3A] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#6B7A3A] transition-all"
-                >
-                  Learn More
-                </Link>
+              <Sparkles className="w-14 h-14 mb-6" />
+              <h3 className="text-3xl font-bold mb-5">Care Beyond School Hours</h3>
+              <p className="text-white/90 leading-relaxed text-lg mb-6">
+                Children receive targeted support in a calm, nurturing environment where therapists and educators work on each child's individual goals.
+              </p>
+              <div className="bg-white/15 rounded-2xl p-5">
+                <p className="font-bold mb-2">Best for children who need:</p>
+                <p className="text-white/90">Behavior support, academic help, speech development, physical support, social skills, and structured therapeutic guidance.</p>
               </div>
             </motion.div>
 
-            {/* Therapy Session*/}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-[#E8DCC4] hover:shadow-2xl transition-all"
-            >
-              <div className="bg-gradient-to-r from-[#8BB8E8] to-[#7A9B3A] p-6">
-                <h3 className="text-2xl md:text-3xl font-bold text-white flex items-center gap-3">
-                  🌿 Therapy Session
-                </h3>
-              </div>
-              <div className="p-8">
-                <p className="text-gray-600 mb-4 font-semibold">For children with:</p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center gap-3 text-gray-700">
-                    <span className="w-2 h-2 bg-[#8BB8E8] rounded-full"></span>
-                    Learning difficulties
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-700">
-                    <span className="w-2 h-2 bg-[#8BB8E8] rounded-full"></span>
-                    Slow learners
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-700">
-                    <span className="w-2 h-2 bg-[#8BB8E8] rounded-full"></span>
-                    ADHD
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-700">
-                    <span className="w-2 h-2 bg-[#8BB8E8] rounded-full"></span>
-                    Mild autism
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-700">
-                    <span className="w-2 h-2 bg-[#8BB8E8] rounded-full"></span>
-                    Speech delay
-                  </li>
-                  <li className="flex items-center gap-3 text-gray-700">
-                    <span className="w-2 h-2 bg-[#8BB8E8] rounded-full"></span>
-                    Down syndrome
-                  </li>
-                </ul>
-                <div className="bg-[#F9F7F3] p-4 rounded-xl mb-4">
-                  <ul className="space-y-2 text-sm text-gray-700">
-                    <li>✓ Individual Learning Plans (ILP)</li>
-                    <li>✓ One-on-one sessions</li>
-                    <li>✓ Small group therapy</li>
-                    <li>✓ Trained educators</li>
-                  </ul>
-                </div>
-                <Link
-                  to="/therapy"
-                  className="inline-block bg-[#8BB8E8] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#7A9B3A] transition-all"
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {afterSchoolTherapies.map((therapy, index) => (
+                <motion.div
+                  key={therapy.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-[#F9F7F3] rounded-2xl p-6 border border-[#E8DCC4] shadow-md hover:shadow-lg transition-shadow"
                 >
-                  Explore Support
-                </Link>
-              </div>
-            </motion.div>
+                  <div className="w-14 h-14 bg-[#7A9B3A]/15 rounded-full flex items-center justify-center mb-4">
+                    <therapy.icon className="w-7 h-7 text-[#7A9B3A]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#6B7A3A] mb-3">{therapy.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">{therapy.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Internship Program */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-[#6B7A3A] via-[#7A9B3A] to-[#A67C52] rounded-3xl p-8 md:p-12 text-white shadow-2xl"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 items-center">
+              <div>
+                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-5">
+                  <GraduationCap className="w-9 h-9" />
+                </div>
+                <p className="uppercase tracking-[0.2em] text-sm text-white/75 mb-3">Career Growth Program</p>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">Paid Internship Program</h2>
+                <p className="text-lg text-white/90 leading-relaxed">
+                  The Willow Village offers a 3-month paid internship program for passionate learners who want real experience in a caring, professional school environment.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-6 text-gray-700 shadow-xl">
+                <h3 className="text-2xl font-bold text-[#6B7A3A] mb-5 flex items-center gap-3">
+                  <BriefcaseBusiness className="w-7 h-7" />
+                  Open across multiple domains
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {internshipHighlights.map((item) => (
+                    <div key={item} className="flex items-start gap-3 bg-[#F9F7F3] rounded-xl p-4">
+                      <BadgeCheck className="w-5 h-5 text-[#7A9B3A] mt-1 flex-shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href={whatsappInternshipLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block bg-[#7A9B3A] text-white px-7 py-3 rounded-full font-semibold hover:bg-[#6B7A3A] transition-all"
+                >
+                  Apply for Internship
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-r from-[#7A9B3A] to-[#6B7A3A] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -437,3 +554,4 @@ export function Home() {
     </div>
   );
 }
+
