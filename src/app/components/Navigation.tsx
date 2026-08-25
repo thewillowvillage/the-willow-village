@@ -35,6 +35,7 @@ const navConfig = [
     ],
   },
   { path: "/our-partners", label: "Our Partners" },
+  { path: "/mou", label: "Collaboration" },
   { path: "/contact", label: "Contact" },
 ];
 

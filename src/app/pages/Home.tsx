@@ -5,31 +5,47 @@ import { useState } from "react";
 import { Heart, Users, Award, Sparkles, BookOpen, Brain, HandHeart, School, Ribbon, GraduationCap, BriefcaseBusiness, BadgeCheck } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const heroSlides = [
+type HeroSlide = {
+  image: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  primaryButton: string;
+  primaryLink: string;
+  secondaryButton?: string;
+  secondaryLink?: string;
+};
+
+const heroSlides: HeroSlide[] = [
   {
     image: "/mou-signing.jpg",
     title: "MOU Signed with Sohail University",
     subtitle: "Building Partnerships for Better Education",
-    description:
-      "The Willow Village and Sohail University are working together to support inclusive education and child development.",
-    primaryButton: "Partner With Us",
-    primaryLink: "/contact",
+    description: "The Willow Village and Sohail University are working together to support inclusive education.",
+    primaryButton: "Discover the MOU",
+    primaryLink: "/mou",
+    secondaryButton: "Become a Partner",
+    secondaryLink: "https://wa.me/923220277871?text=Hello%2C%20I%20would%20like%20to%20become%20a%20partner%20with%20The%20Willow%20Village.",
   },
   {
-    image: "banner2.jpeg",
+    image: "/banner2.jpeg",
     title: "The Willow Village",
     subtitle: "Shaping Independent Thinkers",
     description: "Where learning meets individual care.",
     primaryButton: "Apply Now",
     primaryLink: "/admissions",
+    secondaryButton: "Explore",
+    secondaryLink: "/about",
   },
   {
-    image: "banner3.jpeg",
+    image: "/banner3.jpeg",
     title: "Montessori Education",
     subtitle: "Learning Through Care and Support",
     description: "Discover our programs and services.",
     primaryButton: "Apply Now",
     primaryLink: "/admissions",
+    secondaryButton: "Explore",
+    secondaryLink: "/programs",
   },
 ];
 // Add these to your image array or a new one
@@ -143,7 +159,7 @@ const signaturePrograms = [
 ];
 
 const internshipHighlights = [
-  "Paid 3-month internship program",
+  "UN 3-month internship program",
   "Opportunities across education, therapy, administration, media, and community outreach",
   "Hands-on experience with a leading inclusive school environment",
   "Certificate provided after successful completion"
@@ -199,73 +215,61 @@ export function Home() {
     <div className="pt-16">
     <div className="pt-4">
       {/* Hero Section with Slider */}
-      <section className="relative h-[600px] md:h-[700px] overflow-hidden">
-        <Slider {...sliderSettings} className="h-full">
-          {heroSlides.map((slide, index) => (
-  <div key={index} className="relative h-[500px] sm:h-[600px] md:h-[700px]">
-    <img
-      src={slide.image}
-      alt={slide.title}
-      className="absolute inset-0 w-full h-full object-cover object-center"
-    />
+     <section className="relative w-full overflow-hidden">
+  <Slider {...sliderSettings}>
+    {heroSlides.map((slide, index) => (
+      <div
+        key={index}
+        className="relative w-full h-[clamp(360px,56.25vw,700px)]"
+      >
+        <img
+          src={slide.image}
+          alt={slide.title}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
-  </div>
-))}
-        </Slider>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      </div>
+    ))}
+  </Slider>
 
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex items-center z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="max-w-3xl"
+  <div className="absolute inset-0 z-10 flex items-center">
+    <div className="w-full px-5 sm:px-8 lg:px-16">
+      <div className="max-w-xl">
+        <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white mb-3">
+          {currentSlide.title}
+        </h1>
+
+        <p className="text-base sm:text-xl lg:text-2xl text-[#F4E5C7] mb-3 italic">
+          {currentSlide.subtitle}
+        </p>
+
+        <p className="text-sm sm:text-lg text-white mb-5">
+          {currentSlide.description}
+        </p>
+
+        <div className="flex flex-wrap gap-3">
+          <Link
+            to={currentSlide.primaryLink}
+            className="inline-block rounded-full bg-[#7A9B3A] px-5 py-3 font-semibold text-white sm:px-8 sm:py-4"
+          >
+            {currentSlide.primaryButton}
+          </Link>
+          {currentSlide.secondaryButton && currentSlide.secondaryLink && (
+            <a
+              href={currentSlide.secondaryLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block rounded-full border-2 border-white bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#6B7A3A] sm:px-8 sm:py-4"
             >
-              <motion.h1
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight"
-              >
-                 {currentSlide.title}
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-2xl md:text-3xl text-[#F4E5C7] mb-4 font-medium italic"
-              >
-                {currentSlide.subtitle}
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
-              >
-                {currentSlide.description}
-                <br />
-                <span className="text-[#E8DCC4]"></span>
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                className="flex flex-wrap gap-4"
-              >
-                <Link
-  to={currentSlide.primaryLink}
-  className="bg-[#7A9B3A] text-white px-8 py-4 rounded-full font-semibold"
->
-  {currentSlide.primaryButton}
-</Link>
-              </motion.div>
-            </motion.div>
-          </div>
+              {currentSlide.secondaryButton}
+            </a>
+          )}
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* About Short Intro */}
       <section className="py-16 bg-gradient-to-b from-white to-[#F9F7F3]">

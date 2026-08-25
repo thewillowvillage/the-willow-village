@@ -136,7 +136,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[#6B7A3A] mb-2">School Hours</h3>
-                    <p className="text-gray-700">Monday - Friday: 8:00 AM - 2:00 PM</p>
+                    <p className="text-gray-700">Monday - Friday: 9:00 AM - 9:00 PM</p>
                     <p className="text-sm text-gray-600 mt-1">Visit by appointment recommended</p>
                   </div>
                 </motion.div>

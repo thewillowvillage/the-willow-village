@@ -13,6 +13,13 @@ export function OurPartners() {
       icon: "MIA",
     },
     {
+      name: "Sohail University",
+      category: "Academic Collaboration",
+      desc: "The Willow Village has signed an MOU with Sohail University to create opportunities for inclusive education, student learning, internships, research, training, and community initiatives.",
+      icon: "SU",
+      link: "/mou",
+    },
+    {
       name: "Karachi Speech Therapy Network",
       category: "Healthcare",
       desc: "A consortium of certified speech-language pathologists supporting our therapy team with specialist consultations, referrals, and continued education.",
@@ -81,8 +88,13 @@ export function OurPartners() {
                     <h3 className="text-base font-bold text-[#6B7A3A] mb-1">{partner.name}</h3>
                     <span className="inline-block bg-[#E8DCC4] text-[#6B7A3A] text-xs font-semibold px-3 py-0.5 rounded-full mb-3">{partner.category}</span>
                     <p className="text-gray-600 text-sm leading-relaxed mb-3">{partner.desc}</p>
-                    {((partner as any).instagram || (partner as any).facebook || (partner as any).whatsapp || (partner as any).email || (partner as any).location) && (
+                    {((partner as any).instagram || (partner as any).facebook || (partner as any).whatsapp || (partner as any).email || (partner as any).location || (partner as any).link) && (
                       <div className="space-y-1.5 mt-2 border-t border-gray-100 pt-3">
+                        {(partner as any).link && (
+                          <a href={(partner as any).link} className="flex items-center gap-2 text-xs text-[#6B7A3A] hover:text-[#7A9B3A] font-bold">
+                            View MOU details →
+                          </a>
+                        )}
                         {(partner as any).instagram && (
                           <a href={(partner as any).instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-pink-500 hover:text-pink-600 font-medium">
                             <span>Instagram:</span> Open Profile

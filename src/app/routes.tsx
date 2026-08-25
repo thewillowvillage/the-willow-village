@@ -12,6 +12,7 @@ import { NotFound } from "./pages/NotFound";
 import { OurStory, OurTeam, OurMission, CommunityService } from "./pages/AboutPages";
 import { ApplyNow, Requirements, FeesAndScholarships, ExpansionPlans, UpcomingPrograms } from "./pages/SubPages";
 import { OurPartners } from "./pages/OurPartners";
+import { Mou } from "./pages/Mou";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,7 @@ export const router = createBrowserRouter([
       { path: "future-goals/expansion", element: <ExpansionPlans /> },
       { path: "future-goals/programs", element: <UpcomingPrograms /> },
       { path: "our-partners", element: <OurPartners /> },
+      { path: "mou", element: <Mou /> },
       { path: "*", element: <NotFound /> },
     ],
   },
