@@ -5,7 +5,7 @@ import { Leaf, Users, Heart, Shield, BookOpen, GraduationCap, Phone, Mail } from
 
 export default function HomePage() {
   const heroImages = [
-    'https://images.unsplash.com/photo-1763310225537-f7161d5c93e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb250ZXNzb3JpJTIwY2hpbGRyZW4lMjBsZWFybmluZyUyMGNsYXNzcm9vbXxlbnwxfHx8fDE3NzE2NzI2MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    '/images/mou-signing.jpg',
     'https://images.unsplash.com/photo-1758598737882-4d6d61886bde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMHN0dWR5aW5nJTIwdG9nZXRoZXIlMjBoYXBweXxlbnwxfHx8fDE3NzE1NzY1NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
     'https://images.unsplash.com/photo-1661264052465-91de8e0d0449?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGVjaWFsJTIwbmVlZHMlMjBjaGlsZHJlbiUyMGVkdWNhdGlvbiUyMHN1cHBvcnR8ZW58MXx8fHwxNzcxNjc0MDQwfDA&ixlib=rb-4.1.0&q=80&w=1080',
     'https://images.unsplash.com/photo-1553031883-6eb16f86ac62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWRzJTIwcGxheWluZyUyMGVkdWNhdGlvbmFsJTIwdG95c3xlbnwxfHx8fDE3NzE1OTQ0ODh8MA&ixlib=rb-4.1.0&q=80&w=1080',

@@ -1,13 +1,36 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import Slider from "react-slick";
+import { useState } from "react";
 import { Heart, Users, Award, Sparkles, BookOpen, Brain, HandHeart, School, Ribbon, GraduationCap, BriefcaseBusiness, BadgeCheck } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const heroImages = [
-  "banner1.jpeg",
-  "banner2.jpeg",
-  "banner3.jpeg",
+const heroSlides = [
+  {
+    image: "/mou-signing.jpg",
+    title: "MOU Signed with Sohail University",
+    subtitle: "Building Partnerships for Better Education",
+    description:
+      "The Willow Village and Sohail University are working together to support inclusive education and child development.",
+    primaryButton: "Partner With Us",
+    primaryLink: "/contact",
+  },
+  {
+    image: "banner2.jpeg",
+    title: "The Willow Village",
+    subtitle: "Shaping Independent Thinkers",
+    description: "Where learning meets individual care.",
+    primaryButton: "Apply Now",
+    primaryLink: "/admissions",
+  },
+  {
+    image: "banner3.jpeg",
+    title: "Montessori Education",
+    subtitle: "Learning Through Care and Support",
+    description: "Discover our programs and services.",
+    primaryButton: "Apply Now",
+    primaryLink: "/admissions",
+  },
 ];
 // Add these to your image array or a new one
 const drawerImages = [
@@ -153,6 +176,8 @@ const afterSchoolTherapies = [
 ];
 
 export function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -163,23 +188,30 @@ export function Home() {
     autoplaySpeed: 4000,
     fade: true,
     pauseOnHover: false,
+    beforeChange: (_current: number, next: number) => {
+      setActiveSlide(next);
+    },
   };
+
+  const currentSlide = heroSlides[activeSlide];
+
   return (
     <div className="pt-16">
     <div className="pt-4">
       {/* Hero Section with Slider */}
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
         <Slider {...sliderSettings} className="h-full">
-          {heroImages.map((image, index) => (
-            <div key={index} className="relative h-[600px] md:h-[700px]">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${image})` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-              </div>
-            </div>
-          ))}
+          {heroSlides.map((slide, index) => (
+  <div key={index} className="relative h-[500px] sm:h-[600px] md:h-[700px]">
+    <img
+      src={slide.image}
+      alt={slide.title}
+      className="absolute inset-0 w-full h-full object-cover object-center"
+    />
+
+    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+  </div>
+))}
         </Slider>
 
         {/* Hero Content */}
@@ -197,7 +229,7 @@ export function Home() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight"
               >
-                The Willow Village
+                 {currentSlide.title}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, x: -30 }}
@@ -205,7 +237,7 @@ export function Home() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="text-2xl md:text-3xl text-[#F4E5C7] mb-4 font-medium italic"
               >
-                Shaping Independent Thinkers
+                {currentSlide.subtitle}
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, x: -30 }}
@@ -213,9 +245,9 @@ export function Home() {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
               >
-                Montessori + Therapy Session
+                {currentSlide.description}
                 <br />
-                <span className="text-[#E8DCC4]">Where Learning Meets Individual Care</span>
+                <span className="text-[#E8DCC4]"></span>
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -224,17 +256,11 @@ export function Home() {
                 className="flex flex-wrap gap-4"
               >
                 <Link
-                  to="/admissions"
-                  className="bg-[#7A9B3A] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#6B7A3A] transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
-                  Apply Now
-                </Link>
-                <Link
-                  to="/contact"
-                  className="bg-white text-[#7A9B3A] px-8 py-4 rounded-full font-semibold hover:bg-[#E8DCC4] transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
-                  Book Assessment
-                </Link>
+  to={currentSlide.primaryLink}
+  className="bg-[#7A9B3A] text-white px-8 py-4 rounded-full font-semibold"
+>
+  {currentSlide.primaryButton}
+</Link>
               </motion.div>
             </motion.div>
           </div>
