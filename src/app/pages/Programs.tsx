@@ -125,6 +125,27 @@ export function Programs() {
   const whatsappInternshipLink =
     "https://wa.me/923220277871?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20apply%20for%20the%203-month%20unpaid%20internship%20program%20at%20The%20Willow%20Village.";
 
+  const staffTrainingPrograms = [
+    {
+      icon: GraduationCap,
+      title: "Inclusive Montessori Practice",
+      description: "Strengthen classroom practice through Montessori methods, individualized learning plans, observation, and child-led learning.",
+      topics: ["Montessori classroom methods", "Observation and lesson planning", "Adapting activities for different learners"]
+    },
+    {
+      icon: Heart,
+      title: "Child Development & Positive Support",
+      description: "Build confidence in understanding children’s communication, sensory, emotional, and behavioral needs with compassion.",
+      topics: ["Positive behavior support", "Sensory and emotional regulation", "Communication and de-escalation"]
+    },
+    {
+      icon: Users,
+      title: "Professional Team Development",
+      description: "Create a consistent, reflective team culture through collaboration, safeguarding, family communication, and continuous improvement.",
+      topics: ["Safeguarding and professional conduct", "Parent and team communication", "Reflective practice and feedback"]
+    }
+  ];
+
   return (
     <div className="pt-24 pb-16">
       <section className="bg-gradient-to-r from-[#7A9B3A] to-[#6B7A3A] text-white py-20">
@@ -226,6 +247,52 @@ export function Programs() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="uppercase tracking-[0.2em] text-sm text-[#A67C52] font-bold mb-3">Investing in our team</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#6B7A3A] mb-4">Staff Training & Skill Development</h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Our training programs help teachers, therapists, and support staff grow their expertise and provide more confident, consistent, and compassionate care.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {staffTrainingPrograms.map((training, index) => (
+              <motion.div
+                key={training.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-2xl border-2 border-[#E8DCC4] bg-[#F9F7F3] p-7 shadow-md"
+              >
+                <div className="w-14 h-14 rounded-full bg-[#7A9B3A]/15 flex items-center justify-center mb-5">
+                  <training.icon className="w-7 h-7 text-[#7A9B3A]" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#6B7A3A] mb-3">{training.title}</h3>
+                <p className="text-gray-700 leading-relaxed mb-5">{training.description}</p>
+                <ul className="space-y-3">
+                  {training.topics.map((topic) => (
+                    <li key={topic} className="flex items-start gap-3 text-gray-700">
+                      <BadgeCheck className="w-5 h-5 mt-0.5 text-[#7A9B3A] flex-shrink-0" />
+                      <span>{topic}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-gray-700 mb-4">Interested in arranging staff training or a professional workshop?</p>
+            <Link to="/contact" className="inline-block bg-[#7A9B3A] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#6B7A3A] transition-colors">
+              Enquire About Training
+            </Link>
+          </div>
         </div>
       </section>
 

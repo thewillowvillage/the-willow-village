@@ -47,11 +47,13 @@ export function OurStory() {
 
 export function OurTeam() {
   const team = [
-    { name: "Ms. UROOJ SHEHZAD", role: "Founder & Principal", bio: "With over 15 years in Montessori and special education, Ms. Ayesha founded The Willow Village to create an inclusive space where every child can thrive. She holds certifications in Montessori education and special needs teaching.", initial: "A" },
-    { name: "Ms. ALEENA", role: "Assistant Teacher", bio: "A certified teacher and behavioral teacher with 10+ years Best school experience. Ms. Aleena leads our teacher team and develops personalized plans for each child.", initial: "U" },
-    { name: "Ms. BUSHRA", role: "Lead Montessori Teacher", bio: "AMI certified with a decade of classroom experience. Ms. Sara creates engaging, child-led learning environments that nurture curiosity and independence.", initial: "S" },
-    { name: "Ms. KIRAN AKBER", role: "Special Education Coordinator", bio: "Expert in Individual Learning Plan (ILP) development and inclusive education strategies. Ms. Hina ensures each child in our Special Support Program receives tailored attention.", initial: "H" },
-    { name: "Ms. AMNA", role: "Behavioral Therapist", bio: "Specialist in ABA therapy and behavioral intervention for children with ADHD, autism spectrum, and other behavioral challenges.", initial: "B" },
+    { name: "Ms. Urooj Shehzad", role: "CEO & Founder", bio: "Ms. Urooj Shehzad is the CEO and Founder of The Willow Village. Through her vision and leadership, she has built a compassionate, inclusive, and child-centered environment focused on development, independence, and well-being.", image: "/ceo-urooj.jpeg" },
+    { name: "Ms. Maliha Sajid", role: "Head of Occupational Therapy", bio: "Ms. Maliha Sajid holds a Doctor of Occupational Therapy degree from Ziauddin University and is currently pursuing an MBA in Healthcare Management. She brings valuable expertise in evidence-based care and research.", image: "/msmaliha.png" },
+    { name: "Ms. Urooj Anees", role: "HR", bio: "Ms. Urooj Anees supports employee coordination, recruitment, staff support, and smooth workplace operations. Her people-focused approach helps maintain a positive and professional work environment.", image: "/hr-msurooj.png" },
+    { name: "Sir Mustafa", role: "Occupational Therapist", bio: "Sir Mustafa supports functional development, independence, and overall well-being through a patient-centered approach. His commitment and compassion make him a valuable member of the occupational therapy team.", image: "/sirmustufa.png" },
+    { name: "Ms. Amna Qamar", role: "Head of the Behaviour Department", bio: "Ms. Amna Qamar supports children’s emotional, behavioural, and social development through a compassionate and individualized approach that builds confidence and essential life skills.", image: "/msamnaqamar.png" },
+    { name: "Syed Manzar Naqvi", role: "Head of the Therapeutic Department - Afternoon", bio: "Syed Manzar Naqvi leads the afternoon therapeutic department with a commitment to professional, compassionate, and individualized care that helps individuals work toward their developmental goals.", image: "/sirmazhernaqvi.png" },
+    { name: "Syed Naushad Shaukat", role: "Head of the Speech Department", bio: "Syed Naushad Shaukat supports individuals in developing effective communication and speech skills through compassionate, individualized care and a patient-centered approach.", image: "/sirnaushad.png" },
   ];
   return (
     <div className="pt-24 min-h-screen bg-[#F9F5EE]">
@@ -63,9 +65,7 @@ export function OurTeam() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {team.map((member) => (
             <div key={member.name} className="bg-white rounded-2xl p-6 shadow-md border border-[#E8DCC4] hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#7A9B3A] rounded-full flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-white">{member.initial}</span>
-              </div>
+              <img src={member.image} alt={member.name} className="w-full aspect-[4/5] object-cover rounded-xl mb-5" />
               <h3 className="text-lg font-bold text-[#6B7A3A]">{member.name}</h3>
               <p className="text-[#A67C52] text-sm font-semibold mb-3">{member.role}</p>
               <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
