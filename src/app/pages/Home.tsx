@@ -25,7 +25,7 @@ const heroSlides: HeroSlide[] = [
     primaryButton: "Discover the MOU",
     primaryLink: "/mou",
     secondaryButton: "Become a Partner",
-    secondaryLink: "https://wa.me/923220277871?text=Hello%2C%20I%20would%20like%20to%20become%20a%20partner%20with%20The%20Willow%20Village.",
+    secondaryLink: "mailto:thewillovillage@gmail.com?subject=Partnership%20with%20The%20Willow%20Village&body=Hello%2C%20I%20would%20like%20to%20discuss%20becoming%20a%20partner%20with%20The%20Willow%20Village.",
   },
   {
     image: "/banner2.jpeg",
@@ -166,7 +166,7 @@ const internshipHighlights = [
 ];
 
 const whatsappInternshipLink =
-  "https://wa.me/923220277871?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20apply%20for%20the%203-month%20paid%20internship%20program%20at%20The%20Willow%20Village.";
+  "https://wa.me/923220277871?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20apply%20for%20the%203-month%20unpaid%20internship%20program%20at%20The%20Willow%20Village.";
 
 const afterSchoolTherapies = [
   {
@@ -220,12 +220,12 @@ export function Home() {
     {heroSlides.map((slide, index) => (
       <div
         key={index}
-        className="relative w-full h-[clamp(360px,56.25vw,700px)]"
+        className="relative h-[clamp(320px,35vw,460px)] w-full overflow-hidden"
       >
         <img
           src={slide.image}
           alt={slide.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
@@ -240,7 +240,7 @@ export function Home() {
           {currentSlide.title}
         </h1>
 
-        <p className="text-base sm:text-xl lg:text-2xl text-[#F4E5C7] mb-3 italic">
+        <p className="text-base sm:text-xl lg:text-2xl text-[#F4E5C7] mb-3 font-bold italic">
           {currentSlide.subtitle}
         </p>
 
@@ -248,10 +248,10 @@ export function Home() {
           {currentSlide.description}
         </p>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-nowrap gap-2 sm:gap-3">
           <Link
             to={currentSlide.primaryLink}
-            className="inline-block rounded-full bg-[#7A9B3A] px-5 py-3 font-semibold text-white sm:px-8 sm:py-4"
+            className="inline-block whitespace-nowrap rounded-full bg-[#7A9B3A] px-3 py-3 text-xs font-semibold text-white sm:px-8 sm:py-4 sm:text-base"
           >
             {currentSlide.primaryButton}
           </Link>
@@ -260,7 +260,7 @@ export function Home() {
               href={currentSlide.secondaryLink}
               target="_blank"
               rel="noreferrer"
-              className="inline-block rounded-full border-2 border-white bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#6B7A3A] sm:px-8 sm:py-4"
+              className="inline-block whitespace-nowrap rounded-full border-2 border-white bg-white/10 px-3 py-3 text-xs font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#6B7A3A] sm:px-8 sm:py-4 sm:text-base"
             >
               {currentSlide.secondaryButton}
             </a>
@@ -515,9 +515,9 @@ export function Home() {
                   <GraduationCap className="w-9 h-9" />
                 </div>
                 <p className="uppercase tracking-[0.2em] text-sm text-white/75 mb-3">Career Growth Program</p>
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">Paid Internship Program</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">Unpaid Internship Program</h2>
                 <p className="text-lg text-white/90 leading-relaxed">
-                  The Willow Village offers a 3-month paid internship program for passionate learners who want real experience in a caring, professional school environment.
+                  The Willow Village offers a 3-month unpaid internship program for passionate learners who want real experience in a caring, professional school environment.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 text-gray-700 shadow-xl">

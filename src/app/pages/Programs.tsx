@@ -115,7 +115,7 @@ export function Programs() {
   ];
 
   const internshipHighlights = [
-    "Paid 3-month internship program",
+    "Unpaid 3-month internship program",
     "Open for education, therapy, administration, media, and outreach domains",
     "Professional school environment with practical learning",
     "Certificate awarded after successful completion",
@@ -123,7 +123,7 @@ export function Programs() {
   ];
 
   const whatsappInternshipLink =
-    "https://wa.me/923220277871?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20apply%20for%20the%203-month%20paid%20internship%20program%20at%20The%20Willow%20Village.";
+    "https://wa.me/923220277871?text=Assalam%20o%20Alaikum%2C%20I%20want%20to%20apply%20for%20the%203-month%20unpaid%20internship%20program%20at%20The%20Willow%20Village.";
 
   return (
     <div className="pt-24 pb-16">
@@ -244,9 +244,9 @@ export function Programs() {
                   <GraduationCap className="w-9 h-9 text-[#7A9B3A]" />
                 </div>
                 <p className="uppercase tracking-[0.2em] text-sm text-[#A67C52] font-bold mb-3">Career Growth</p>
-                <h2 className="text-3xl md:text-5xl font-bold text-[#6B7A3A] mb-4">Paid Internship Program</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-[#6B7A3A] mb-4">Unpaid Internship Program</h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  We provide a 3-month paid internship program with certification for candidates who want to learn inside a caring, inclusive, and professional school setting.
+                  We provide a 3-month unpaid internship program with certification for candidates who want to learn inside a caring, inclusive, and professional school setting.
                 </p>
               </div>
               <div>

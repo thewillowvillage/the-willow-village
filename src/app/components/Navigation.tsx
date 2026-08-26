@@ -35,7 +35,7 @@ const navConfig = [
     ],
   },
   { path: "/our-partners", label: "Our Partners" },
-  { path: "/mou", label: "Collaboration" },
+  { path: "/mou", label: "MOU" },
   { path: "/contact", label: "Contact" },
 ];
 
@@ -146,31 +146,31 @@ export function Navigation() {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2 mr-4 sm:mr-10 transition-transform active:scale-95"
+              className="flex shrink-0 items-center gap-2 transition-transform active:scale-95 lg:mr-6 xl:mr-8"
             >
               <img
                 src="/logo.png"
                 alt="The Willow Village"
-                className="h-10 sm:h-12 w-auto"
+                className="h-10 w-auto sm:h-11"
               />
 
               <div className="flex flex-col">
-                <span className="font-bold text-[#6B7A3A] text-sm sm:text-lg leading-tight">
+                <span className="whitespace-nowrap font-bold text-[#6B7A3A] text-sm leading-tight sm:text-base">
                   The Willow Village
                 </span>
 
-                <span className="text-[9px] sm:text-[11px] text-[#A67C52] italic leading-tight">
+                <span className="whitespace-nowrap text-[9px] text-[#A67C52] italic leading-tight sm:text-[10px]">
                   Shaping Independent Thinkers
                 </span>
               </div>
             </Link>
 
             {/* Right Side */}
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3">
 
               {/* Desktop Navigation */}
               <div
-                className="hidden lg:flex items-center gap-5"
+                className="hidden xl:flex items-center gap-3"
                 ref={dropdownRef}
               >
                 {navConfig.map((item) => (
@@ -185,7 +185,7 @@ export function Navigation() {
                                 : item.label
                             )
                           }
-                          className={`flex items-center gap-1 px-1 py-1 text-[13px] font-medium transition-colors ${
+                          className={`flex items-center gap-1 px-1 py-1 text-xs font-medium transition-colors ${
                             openDropdown === item.label
                               ? "text-[#7A9B3A]"
                               : "text-gray-700 hover:text-[#6B7A3A]"
@@ -205,7 +205,7 @@ export function Navigation() {
                     ) : (
                       <Link
                         to={item.path!}
-                        className={`px-1 py-1 text-[13px] font-medium transition-colors ${
+                        className={`px-1 py-1 text-xs font-medium transition-colors ${
                           location.pathname === item.path
                             ? "text-[#7A9B3A] font-bold"
                             : "text-gray-700 hover:text-[#6B7A3A]"
@@ -217,18 +217,18 @@ export function Navigation() {
                   </div>
                 ))}
 
-                <div className="ml-2 border-l pl-4 border-gray-200">
+                <div className="ml-1 border-l border-gray-200 pl-3">
                   <SocialLinks />
                 </div>
               </div>
 
               {/* Mobile Socials */}
-              <SocialLinks className="lg:hidden" />
+              <SocialLinks className="xl:hidden" />
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 text-gray-700 focus:outline-none"
+                className="p-2 text-gray-700 focus:outline-none xl:hidden"
               >
                 {isOpen ? (
                   <X className="w-6 h-6" />
@@ -247,7 +247,7 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="absolute top-[72px] left-0 w-full lg:hidden bg-white border-t px-6 py-6 shadow-xl overflow-y-auto max-h-[80vh]"
+              className="absolute top-[72px] left-0 w-full bg-white border-t px-6 py-6 shadow-xl overflow-y-auto max-h-[80vh] xl:hidden"
             >
               {navConfig.map((item) => (
                 <div key={item.label} className="mb-3">

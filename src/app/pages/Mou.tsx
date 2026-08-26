@@ -46,9 +46,7 @@ export function Mou() {
                 Explore the partnership <ArrowRight className="h-5 w-5" />
               </a>
               <a
-                href="https://wa.me/923220277871?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20collaboration%20with%20The%20Willow%20Village."
-                target="_blank"
-                rel="noreferrer"
+                href="mailto:thewillovillage@gmail.com?subject=Partnership%20with%20The%20Willow%20Village&body=Hello%2C%20I%20would%20like%20to%20discuss%20becoming%20a%20partner%20with%20The%20Willow%20Village."
                 className="inline-flex items-center gap-2 rounded-full border border-white/70 px-6 py-3 font-bold text-white transition-colors hover:bg-white hover:text-[#24341f]"
               >
                 <MessageCircle className="h-5 w-5" /> Collaborate with us
@@ -142,9 +140,7 @@ export function Mou() {
               <Users className="h-5 w-5" /> Contact our team
             </Link>
             <a
-              href="https://wa.me/923220277871?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20collaboration%20with%20The%20Willow%20Village."
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:thewillovillage@gmail.com?subject=Partnership%20with%20The%20Willow%20Village&body=Hello%2C%20I%20would%20like%20to%20discuss%20becoming%20a%20partner%20with%20The%20Willow%20Village."
               className="inline-flex items-center gap-2 rounded-full border border-white/60 px-6 py-3 font-bold hover:bg-white hover:text-[#526b2d]"
             >
               <Handshake className="h-5 w-5" /> WhatsApp us
